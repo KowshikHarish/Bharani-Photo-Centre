@@ -32,7 +32,7 @@
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
+  <!-- Top Bar -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-center justify-content-md-between">
 
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <!-- ======= Header ======= -->
+  <!-- Header -->
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
@@ -65,9 +65,10 @@
       <a href="#login" class="book-a-table-btn scrollto d-none d-lg-flex">Login</a>
 
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
+  <!--  Hero Section  -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
@@ -83,11 +84,12 @@
 
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
+    <!--  About Section  -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
@@ -113,9 +115,10 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section>
+    <!-- End About Section -->
 
-    <!-- ======= Why Us Section ======= -->
+    <!--  Why Us Section  -->
     <section id="why-us" class="why-us">
       <div class="container" data-aos="fade-up">
 
@@ -188,12 +191,11 @@
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
+    </section>
+    <!-- End Why Us Section -->
 
-   
-
-    <!-- ======= Book A Meeting Section ======= -->
-    <section id="reservemeeting" class="book-a-table">
+    <!--  Book A Meeting Section  -->
+    <section id="reservemeeting" class="book">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -232,20 +234,60 @@
             <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
             <div class="validate"></div>
           </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-          </div>
+          <br>
           <div class="text-center"><button type="submit">Book a Meeting</button></div>
         </form>
 
       </div>
-    </section><!-- End Book A Meeting Section -->
+    </section>
+    <!-- End Book A Meeting Section -->
 
-    
 
-    <!-- ======= Contact Section ======= -->
+    <!--  Book A Camera Section  -->
+    <section id="bookcamera" class="book">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Booking</h2>
+          <p>Book a Camera</p>
+        </div>
+
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" class="form-control" name="cameracompany" id="cameracompany" placeholder="Camera Company" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" class="form-control" name="cameramodel" id="cameramodel" placeholder="Camera Model" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+          <br>
+          <div class="text-center"><button type="submit">Book a Camera</button></div>
+        </form>
+
+      </div>
+    </section>
+    <!-- End Book A Camera Section -->
+
+    <!--  Contact Section  -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
@@ -310,24 +352,17 @@
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
-
           </div>
-
         </div>
-
       </div>
     </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
-  <!-- ======= Footer ======= -->
+  <!--  Footer  -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
@@ -384,7 +419,8 @@
         &copy; Copyright <strong><span>Bharani Photo Centre</span></strong>. All Rights Reserved
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
+  <!-- End Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
