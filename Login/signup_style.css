@@ -13,8 +13,22 @@ height: 100%;
 align-content: center;
 }
 
+input[type=text], select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+label{
+    color: white;
+}
+
 .card{
-height: 370px;
+height: 600px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
