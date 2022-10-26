@@ -1,0 +1,33 @@
+[
+    {
+        "numbers":"01",
+        "title":"Best Affordable Price",
+        "desc": "Cheap, best and affordable price for all the products and accessories"
+    },
+    {
+        "numbers":"02",
+        "title":"Best Quality Product",
+        "desc": "Only Best quality of products and accessories available in the shop"
+    },
+    {
+        "numbers":"03",
+        "title":"A Unique Experience",
+        "desc": "Customer will have a unique and best experience in the shop"
+    },
+    {
+        "numbers":"04",
+        "title":"Superior Customer Service",
+        "desc": "Superior and best customer service is our outmost priority"
+    },
+    {
+        "numbers":"05",
+        "title":"Quick Checkout",
+        "desc": "Customer's purchase and Checkout will be quick and satisfied"
+    },
+    {
+        "numbers":"06",
+        "title":"Perks",
+        "desc": "Free gift wrap, loyalty rewards and ongoing specials will be done for customers"
+    }
+]
+

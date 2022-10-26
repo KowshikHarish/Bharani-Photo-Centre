@@ -131,60 +131,60 @@
 
           <div class="col-lg-4">
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <span>01</span>
+              <span id="no-1"></span>
               <article>
-                <h4>Best Affordable Price</h4>
-                <p>Cheap, best and affordable price for all the products and accessories</p>
+                <h4 id="title-1"></h4>
+                <p id="desc-1"></p>
               </article>              
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <span>02</span>
+              <span id="no-2"></span>
               <article>
-                <h4>Best Quality Product</h4>
-                <p>Only Best quality of products and accessories available in the shop</p>
+                <h4 id="title-2"></h4>
+                <p id="desc-2"></p>
               </article>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span>03</span>
+              <span id="no-3"></span>
               <article>
-                <h4>A Unique Experience</h4>
-                <p>Customer will have a unique and best experience in the shop</p>
+                <h4 id="title-3"></h4>
+                <p id="desc-3"></p>
               </article>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0"><br>
             <div class="box" data-aos="zoom-in" data-aos-delay="400">
-              <span>04</span>
+              <span id="no-4"></span>
               <article>
-                <h4>Superior Customer Service</h4>
-                <p>Superior and best customer service is our outmost priority</p>
+                <h4 id="title-4"></h4>
+                <p id="desc-4"></p>
               </article>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0"><br>
             <div class="box" data-aos="zoom-in" data-aos-delay="500">
-              <span>05</span>
+              <span id="no-5"></span>
               <article>
-                <h4>Quick Checkout</h4>
-                <p>Customer's purchase and Checkout will be quick and satisfied</p>
+                <h4 id="title-5"></h4>
+                <p id="desc-5"></p>
               </article>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0"><br>
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span>06</span>
+              <span id="no-6"></span>
               <article>
-                <h4>Perks</h4>
-                <p>Free gift wrap, loyalty rewards and ongoing specials will be done for customers</p>
+                <h4 id="title-6"></h4>
+                <p id="desc-6"></p>
               </article>
             </div>
           </div>
@@ -424,6 +424,33 @@
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script>
+    fetch("/whyus.json")
+  .then(function (response) {
+      return response.json();
+  })
+  .then(function (data) {
+      alert("hi");
+      appendData(data);
+  })
+  .catch(function (err) {
+      alert("err");
+      console.log('error: ' + err);
+  });
+  function appendData(data) {
+  
+  for (var i = 0; i < data.length; i++) {
+      var no = document.getElementById("no-".concat((i+1).toString()));
+      var title = document.getElementById("title-".concat((i+1).toString()));
+      var desc = document.getElementById("desc-".concat((i+1).toString()));
+  
+      no.innerHTML=data[i].numbers;
+      title.innerHTML=data[i].title;
+      desc.innerHTML=data[i].desc;
+  }
+  }
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
