@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('../assets/img/hero-bg-1.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #d3af71;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+a{
+    color: #d3af71;
+}
+
+a.hover{
+    color:white;
+}
+
+table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+    color: white;
+ }
+ 
+ table tr:nth-child(odd) {
+    background-color: #563C2F;
+ }
+ 
+ table tr:nth-child(even) {
+    background-color: #6A4B36;
+ }
+
+ 

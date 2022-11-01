@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <link href="../assets/img/icon.jpeg" rel="icon">
+    <link href="../assets/img/icon.jpeg" rel="apple-touch-icon">
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      
+
+</head>
+<body>
+<div class="container"><br><br>
+	<div class="d-flex justify-content-center h-100">
+		<h2>Payment Page</h2>
+      <div ng-app = "mainApp" ng-controller = "paymentController">
+         <br><br><br><br><br><br><br><br><br><br><br><br>
+         <form name = "paymentForm" novalidate>
+            <table border = "0">
+               <tr>
+                  <td>Enter Card Number:</td>
+                  <td><input name = "cardNumber" type = "number" ng-model = "cardNumber" ng-pattern="reCardNumber" required>
+                     <span style = "color:red" ng-show = "paymentForm.cardNumber.$dirty && paymentForm.cardNumber.$invalid">
+                        <span ng-show = "paymentForm.cardNumber.$error.required">Card Number must be required.</span>
+                        <span ng-show="paymentForm.cardNumber.$error.pattern">Card Number should be 16 digits.</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>Enter CardHolder Name: </td>
+                  <td><input name = "cardHolderName"  type = "text" ng-model = "cardHolderName" required>
+                     <span style = "color:red" ng-show = "paymentForm.cardHolderName.$dirty && paymentForm.cardHolderName.$invalid">
+                        <span ng-show = "paymentForm.cardHolderName.$error.required">CardHolder Name must be required.</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>Enter Expiration Month:</td>
+                  <td><input name = "expirationMonth" type = "number" ng-model = "expirationMonth" ng-pattern="reexpirationMonth" required>
+                     <span style = "color:red" ng-show = "paymentForm.expirationMonth.$dirty && paymentForm.expirationMonth.$invalid">
+                        <span ng-show = "paymentForm.expirationMonth.$error.required">Expiration month must be required.</span>
+                        <span ng-show="paymentForm.expirationMonth.$error.pattern">Expiration month must be in range[1-12]</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>Enter Expiration Year:</td>
+                  <td><input name = "expirationYear" type = "number" ng-model = "expirationYear" ng-pattern="reexpirationYear" required>
+                     <span style = "color:red" ng-show = "paymentForm.expirationYear.$dirty && paymentForm.expirationYear.$invalid">
+                        <span ng-show = "paymentForm.expirationYear.$error.required">Expiration year must be required.</span>
+                        <span ng-show="paymentForm.expirationYear.$error.pattern">Expiration year must be 4 digits</span>
+                     </span>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td>Enter CVV:</td>
+                  <td><input name = "cvv" type = "number" ng-model = "cvv" ng-pattern="recvv" required>
+                     <span style = "color:red" ng-show = "paymentForm.cvv.$dirty && paymentForm.cvv.$invalid">
+                        <span ng-show = "paymentForm.cvv.$error.required">CVV must be required.</span>
+                        <span ng-show="paymentForm.cvv.$error.pattern">CVV must be 3 digits</span>
+                     </span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <button ng-click = "reset()">Reset</button>
+                  </td>
+                  <td>
+                     <button ng-disabled = "paymentForm.cardNumber.$dirty &&
+                        paymentForm.cardNumber.$invalid || paymentForm.cardHolderName.$dirty &&
+                        paymentForm.cardHolderName.$invalid || paymentForm.expirationMonth.$dirty &&
+                        paymentForm.expirationMonth.$invalid || paymentForm.expirationYear.$dirty &&
+                        paymentForm.expirationYear.$invalid || paymentForm.cvv.$dirty &&
+                        paymentForm.cvv.$invalid" ng-click="submit()">PAY</button>
+                  </td>
+               </tr>
+					
+            </table>
+         </form>
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('paymentController', function($scope) {
+            $scope.reCardNumber = /^[0-9]{16}$/;
+            $scope.reexpirationMonth= /^[0-9]{1,2}$/;
+            $scope.reexpirationYear= /^[0-9]{4}$/;
+            $scope.recvv= /^[0-9]{3}$/;
+            $scope.reset = function(){
+               $scope.cardNumber = 1234123412341234;
+               $scope.cardHolderName = "Kowshik Harish";
+               $scope.expirationMonth = 11;
+               $scope.expirationYear = 2045;
+               $scope.cvv = 123;
+            }
+           
+            $scope.reset();
+         });
+      </script>
+      
+   </body>
+	</div>
+</div>
+</body>
+</html>

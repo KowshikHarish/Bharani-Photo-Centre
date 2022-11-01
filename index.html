@@ -28,6 +28,8 @@
   <!--CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  
+
 </head>
 
 <body>
@@ -242,6 +244,16 @@
     </section>
     <!-- End Book A Meeting Section -->
 
+    <!--  Camera Section  -->
+    <section id="camera" class="book">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Camera</h2>
+        </div>       
+
+      </div>
+    </section>
+    <!-- End Book A Camera Section -->
 
     <!--  Book A Camera Section  -->
     <section id="bookcamera" class="book">
@@ -252,7 +264,7 @@
           <p>Book a Camera</p>
         </div>
 
-        <form action="forms" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+        <form  method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
@@ -280,7 +292,7 @@
             </div>
           </div>
           <br>
-          <div class="text-center"><button type="submit">Book a Camera</button></div>
+          <div class="text-center"><button type="submit"  formaction="../Payment/payment.html">Book a Camera</button></div>
         </form>
 
       </div>
@@ -431,7 +443,6 @@
       return response.json();
   })
   .then(function (data) {
-      alert("hi");
       appendData(data);
   })
   .catch(function (err) {
