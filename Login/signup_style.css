@@ -23,6 +23,16 @@ input[type=text], select {
     box-sizing: border-box;
   }
 
+  input[type=email], select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
 label{
     color: white;
 }
@@ -108,3 +118,11 @@ a{
 a.hover{
     color:white;
 }
+
+.ng-valid:focus{
+    color: green;
+  }
+
+.ng-invalid:focus{
+    color: red;
+  }
