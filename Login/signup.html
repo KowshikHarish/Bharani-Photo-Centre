@@ -39,6 +39,8 @@
                     <label for="mno">Mobile Number</label><br>
                     <input type="text" id="mno" name="mno" ng-model="mno" ng-minlength="10"><br>
 
+					<span ng-show="myForm.mno.$error.minlength || myForm.mno.$error.maxlength " style="color: red">Not a valid phone number</span><br>
+
                     <label for="fname">Password</label><br>
                     <input type="text" id="fname" name="fname"><br><br>
 					
