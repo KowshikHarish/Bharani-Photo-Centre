@@ -28,6 +28,10 @@
   <!--CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!--Angular -->
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
   
 
 </head>
@@ -890,8 +894,8 @@
       alert("err");
       console.log('error: ' + err);
   });
-  function appendData(data) {
-  
+
+  function appendData(data) {  
   for (var i = 0; i < data.length; i++) {
       var no = document.getElementById("no-".concat((i+1).toString()));
       var title = document.getElementById("title-".concat((i+1).toString()));
@@ -902,6 +906,15 @@
       desc.innerHTML=data[i].desc;
   }
   }
+
+  var app=angular.module('prwpst', []);
+			app.controller('pctrl', function($scope,$window) {
+				$scope.ppost=true;
+				$scope.show=function(){
+					//$window.alert("Button clicked");
+					$scope.ppost=!$scope.ppost;
+				}
+			  });
   </script>
 
   <!-- Vendor JS Files -->
