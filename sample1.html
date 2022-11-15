@@ -28,6 +28,9 @@
   <!--CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
   
 
 </head>
@@ -542,6 +545,142 @@
       </div>
     </section><!-- End Accessories Section -->
 
+
+    <!-- ======= Testimonials Section ======= -->
+    <main class="main-content" ng-app="prwpst" ng-controller="pctrl">
+			<div class="fullwidth-block inner-content">
+				<div class="container"  ng-init="cards=[
+				    {
+					      feedback:'Best retailer in town for all brand camera products & electronics. Best sales & customer support. Best pricing & offers in
+                the city.',
+                imglink:'assets/img/testimonials/testimonials-1.jpg',
+                cname:'Praveen',
+                role:'Customer'
+            },
+            {
+                feedback:'My experience of buying a top notch micro 4/3 Camera and accessories from Bharani Photo Centre was wonderful and a seamless
+                process.Thanks for their candid talk, support about my model selection. Best customer experience! Wishing you greater heights!',
+                imglink:'assets/img/testimonials/testimonials-2.jpg',
+                cname:'Sita',
+                role:'Customer'
+            },
+            {
+                feedback:'Recently purchased Canon EOS 250D Camera from Bharani Photo Centre.Camera seems superb quality & best capturing options 
+                for day & night modes.I would like to thank Bharani Photo Centre for suggesting me to buy this awesome camera. Also their 
+                customer service, support & response is excellent & very nice.Appreciate their demonstration work.Best Wishes!!!.',
+                imglink:'assets/img/testimonials/testimonials-3.jpg',
+                cname:'Priya',
+                role:'Customer'
+            },
+            {
+                feedback:'Good to their customers, they’re being friendly so that we are able to discuss more about the product we are going to buy.
+                The most important thing is that they’re very responsive.Go and check the store you may get some idea!',
+                imglink:'assets/img/testimonials/testimonials-4.jpg',
+                cname:'Matt',
+                role:'Customer'
+            }
+            ]">
+					
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>What are customers saying about us</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="post" ng-hide="ppost">
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <p ng-bind="pctrl.feedback">
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Great
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                  <img src={{pctrl.img}} alt="not found" class="testimonial-img">
+                  <h3 ng-bind="pctrl.cname">ABC</h3>
+                  <h4 ng-bind="pctrl.role">Customer</h4>
+                </div>
+              </div>
+            </div>
+            <!-- End testimonial item -->
+
+          <div ng-repeat="card in cards">
+            <div class="post">
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  {{card.feedback}}
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src={{card.imglink}} class="testimonial-img" alt="">
+                <h3>{{card.cname}}</h3>
+                <h4>{{card.role}}</h4>
+              </div>
+            </div>
+            </div>
+          </div>
+          <!-- End testimonial item -->       
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div><br>
+    </section><!-- End Testimonials Section -->
+				</div>
+			</div> <!-- .testimonial-section -->
+      <div class="col-md-4 col-md-push-1" style="margin-left: 10%;">
+        <aside class="sidebar">
+          <div class="widget">
+            <h3 class="widget-title" style="color: #cda45e;">ADD A FEEDBACK</h3>
+            
+            <div class="box">
+              <form name="createform" novalidate>
+                <div class="input-box">
+                  
+                  <input id="user-post-feedback" type="text" name="feedback" required="" ng-model="pctrl.feedback">   
+                  <label>Feedback</label> <br>              
+                  <span style = "color:red" ng-show = "createform.feedback.$dirty && createform.feedback.$invalid">
+                    <span ng-show = "createform.feedback.$error.required">Feedback is required</span>
+                   </span>
+                </div><br>
+                <div class="input-box">                  
+                  <input id="user-post-link" type="link" name="imglink" required="" ng-model="pctrl.img">  
+                  <label>Your Image</label><br>                
+                  <span style = "color:red" ng-show = "createform.imglink.$dirty && createform.imglink.$invalid">
+                    <span ng-show = "createform.imglink.$error.required">Add an image</span>
+                   </span>
+                </div><br>
+                <div class="input-box">                  
+                  <input id="user-post-cname" type="text" name="cname" required="" ng-model="pctrl.cname">
+                  <label>Customer Name</label> <br>                 
+                  <span style = "color:red" ng-show = "createform.cname.$dirty && createform.cname.$invalid">
+                    <span ng-show = "createform.cname.$error.required">Customer name is needed</span>
+                   </span>																						
+                </div><br>
+                <div class="input-box">                  
+                  <input id="user-post-role" type="text" name="role" required="" ng-model="pctrl.role">
+                  <label>Role</label><br>
+                  <span style = "color:red" ng-show = "createform.role.$dirty && createform.role.$invalid">
+                    <span ng-show = "createform.role.$error.required">Role is needed</span>
+                   </span>																						
+                </div>	<br>						
+                <div class="center-button">		
+                  <input id="submit" type="submit" name="" value="Post" style="background-color: #cda45e;border-radius: 17px;">										
+                  <input id="submit" type="submit" value="Preview" ng-click="show()" style="background-color: #cda45e;border-radius: 17px;"><br> <br>                 
+                </div>
+              </form>
+            </div>
+          </div>
+        </aside>
+      </div>
+		</main> <!-- .main-content -->
+    <!-- End Testimonials Section -->
+
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
@@ -568,64 +707,6 @@
               </div>
             </div><!-- End testimonial item -->
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  My experience of buying a top notch micro 4/3 Camera and accessories from Bharani Photo Centre was wonderful and a seamless
-                  process.Thanks for their candid talk, support about my model selection. Best customer experience! Wishing you greater heights! 
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sita</h3>
-                <h4>Customer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Recently purchased Canon EOS 250D Camera from Bharani Photo Centre.Camera seems superb quality & best capturing options 
-                  for day & night modes.I would like to thank Bharani Photo Centre for suggesting me to buy this awesome camera. Also their 
-                  customer service, support & response is excellent & very nice.Appreciate their demonstration work.Best Wishes!!!
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Priya</h3>
-                <h4>Customer</h4>
-              </div>
-            </div>
-            <!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Good to their customers, they’re being friendly so that we are able to discuss more about the product we are going to buy.
-                  The most important thing is that they’re very responsive.Go and check the store you may get some idea!
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt</h3>
-                <h4>Customer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  The shop, the owner, the equipment's are all superb. Their customer service is extremely good. Fantastic Prices. Do visit
-                  guys. Owner is friendly and service was prompt. Will definitely visit this shop for future purchases. Its even worth it to
-                  make it your favorite store.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John</h3>
-                <h4>Customer</h4>
-              </div>
-            </div><!-- End testimonial item -->
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -845,8 +926,8 @@
       alert("err");
       console.log('error: ' + err);
   });
-  function appendData(data) {
-  
+
+  function appendData(data) {  
   for (var i = 0; i < data.length; i++) {
       var no = document.getElementById("no-".concat((i+1).toString()));
       var title = document.getElementById("title-".concat((i+1).toString()));
@@ -857,6 +938,15 @@
       desc.innerHTML=data[i].desc;
   }
   }
+
+  var app=angular.module('prwpst', []);
+			app.controller('pctrl', function($scope,$window) {
+				$scope.ppost=true;
+				$scope.show=function(){
+					//$window.alert("Button clicked");
+					$scope.ppost=!$scope.ppost;
+				}
+			  });
   </script>
 
   <!-- Vendor JS Files -->
