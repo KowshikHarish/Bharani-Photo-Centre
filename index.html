@@ -633,13 +633,13 @@
     </section><!-- End Testimonials Section -->
 				</div>
 			</div> <!-- .testimonial-section -->
-      <div class="col-md-4 col-md-push-1" style="margin-left: 10%;">
+      <div class="col-md-4 col-md-push-1" style="margin-left: 19%;">
         <aside class="sidebar">
           <div class="widget">
             <h3 class="widget-title" style="color: #cda45e;">ADD A FEEDBACK</h3>
             
             <div class="box">
-              <form name="createform" novalidate>
+              <form name="createform" action="/insertform" method="post" novalidate>
                 <div class="input-box">
                   
                   <input id="user-post-feedback" type="text" name="feedback" required="" ng-model="pctrl.feedback">   
@@ -907,13 +907,21 @@
   }
   }
 
-  var app=angular.module('prwpst', []);
-			app.controller('pctrl', function($scope,$window) {
+      var app=angular.module('prwpst', []);
+			app.controller('pctrl', function($scope, $http) {
 				$scope.ppost=true;
 				$scope.show=function(){
-					//$window.alert("Button clicked");
 					$scope.ppost=!$scope.ppost;
+					window.scroll(0, 0);
 				}
+				$http({
+                method: 'GET',
+                url: "http://localhost:3000/load"
+                }).then(function success(response) {
+                    $scope.cards=response.data;
+                    }, function error(response) {
+                    }
+                );
 			  });
   </script>
 
