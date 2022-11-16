@@ -15,7 +15,7 @@ const postSchema={
     feedback: String,
     imglink: String,
     cname:String,
-    role:String
+    place:String
 }        
 const newPost=mongoose.model("feedback",postSchema)
 
@@ -36,7 +36,7 @@ app.post("/insertform",function(req,res){
         feedback:req.body.feedback,
         imglink:req.body.imglink,
         cname:req.body.cname,
-        role:req.body.role            
+        place:req.body.place            
     })
     console.log(newInsert)
     newInsert.save();

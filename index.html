@@ -551,18 +551,18 @@
 			<div class="fullwidth-block inner-content">
 				<div class="container"  ng-init="cards=[
 				    {
-					      feedback:'Best retailer in town for all brand camera products & electronics. Best sales & customer support. Best pricing & offers in
-                the city.',
-                imglink:'assets/img/testimonials/testimonials-1.jpg',
-                cname:'Praveen',
-                role:'Customer'
+              feedback:'Best retailer in town for all brand camera products & electronics. Best sales & customer support. Best pricing & offers in
+              the city.',
+              imglink:'assets/img/testimonials/testimonials-1.jpg',
+              cname:'Praveen',
+              place:'Coimbatore'
             },
             {
                 feedback:'My experience of buying a top notch micro 4/3 Camera and accessories from Bharani Photo Centre was wonderful and a seamless
                 process.Thanks for their candid talk, support about my model selection. Best customer experience! Wishing you greater heights!',
                 imglink:'assets/img/testimonials/testimonials-2.jpg',
                 cname:'Sita',
-                role:'Customer'
+                place:'Erode'
             },
             {
                 feedback:'Recently purchased Canon EOS 250D Camera from Bharani Photo Centre.Camera seems superb quality & best capturing options 
@@ -570,14 +570,14 @@
                 customer service, support & response is excellent & very nice.Appreciate their demonstration work.Best Wishes!!!.',
                 imglink:'assets/img/testimonials/testimonials-3.jpg',
                 cname:'Priya',
-                role:'Customer'
+                place:'Tirupur'
             },
             {
                 feedback:'Good to their customers, they’re being friendly so that we are able to discuss more about the product we are going to buy.
                 The most important thing is that they’re very responsive.Go and check the store you may get some idea!',
                 imglink:'assets/img/testimonials/testimonials-4.jpg',
                 cname:'Matt',
-                role:'Customer'
+                place:'Erode'
             }
             ]">
 					
@@ -602,7 +602,7 @@
                   </p>
                   <img src={{pctrl.img}} alt="not found" class="testimonial-img">
                   <h3 ng-bind="pctrl.cname">ABC</h3>
-                  <h4 ng-bind="pctrl.role">Customer</h4>
+                  <h4 ng-bind="pctrl.place">Customer</h4>
                 </div>
               </div>
             </div>
@@ -619,7 +619,7 @@
                 </p>
                 <img src={{card.imglink}} class="testimonial-img" alt="">
                 <h3>{{card.cname}}</h3>
-                <h4>{{card.role}}</h4>
+                <h4>{{card.place}}</h4>
               </div>
             </div>
             </div>
@@ -663,10 +663,10 @@
                    </span>																						
                 </div><br>
                 <div class="input-box">                  
-                  <input id="user-post-role" type="text" name="role" required="" ng-model="pctrl.role">
-                  <label>Role</label><br>
-                  <span style = "color:red" ng-show = "createform.role.$dirty && createform.role.$invalid">
-                    <span ng-show = "createform.role.$error.required">Role is needed</span>
+                  <input id="user-post-place" type="text" name="place" required="" ng-model="pctrl.place">
+                  <label>Place</label><br>
+                  <span style = "color:red" ng-show = "createform.place.$dirty && createform.place.$invalid">
+                    <span ng-show = "createform.place.$error.required">Place is needed</span>
                    </span>																						
                 </div>	<br>						
                 <div class="center-button">		
