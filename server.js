@@ -43,6 +43,7 @@ app.post("/insertform",function(req,res){
     res.redirect("/index.html");
 })
 
+
 const custSchema={
     fname: String,
     lname:String,
@@ -52,7 +53,8 @@ const custSchema={
     
 }
 const newCust=mongoose.model("registers",custSchema)
-app.post("/insertUserData",function(req,res){
+
+app.post("/newcustomer",function(req,res){
     let insert =new newCust({
         fname:req.body.fname,
         lname:req.body.lname,
