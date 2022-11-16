@@ -40,7 +40,7 @@ app.post("/insertform",function(req,res){
     })
     console.log(newInsert)
     newInsert.save();
-    res.redirect("/index.html");
+    res.redirect("/index.html#testimonials");
 })
 
 
@@ -63,7 +63,25 @@ app.post("/newcustomer",function(req,res){
         pwd:req.body.pwd,       
     })
     insert.save();
-        res.redirect("/");
+        res.redirect("/Login/login.html");
+})
+
+
+const paySchema={
+    cardNumber:String,
+    cardHolderName:String,
+    amt:String,
+}
+const newPay=mongoose.model("payments",paySchema)
+
+app.post("/newpayment",function(req,res){
+    let insert =new newPay({
+        cardNumber:req.body.cardNumber,
+        cardHolderName:req.body.cardHolderName,
+        amt:req.body.amt,      
+    })
+    insert.save();
+        res.redirect("/index.html");
 })
 
 app.listen(3000,function(){
