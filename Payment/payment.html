@@ -69,6 +69,16 @@
                      </span>
                   </td>
                </tr>
+
+               <tr>
+                  <td>Enter Amount:</td>
+                  <td><input name = "amt" type = "number" ng-model = "amt" required>
+                     <span style = "color:red" ng-show = "paymentForm.amt.$dirty && paymentForm.amt.$invalid">
+                        <span ng-show = "paymentForm.amt.$error.required">Amount is required.</span>
+                     </span>
+                  </td>
+               </tr>
+
                <tr>
                   <td>
                      <button ng-click = "reset()">Reset</button>
@@ -79,7 +89,8 @@
                         paymentForm.cardHolderName.$invalid || paymentForm.expirationMonth.$dirty &&
                         paymentForm.expirationMonth.$invalid || paymentForm.expirationYear.$dirty &&
                         paymentForm.expirationYear.$invalid || paymentForm.cvv.$dirty &&
-                        paymentForm.cvv.$invalid" ng-click="submit()">PAY</button>
+                        paymentForm.cvv.$invalid || paymentForm.amt.$dirty &&
+                        paymentForm.amt.$invalid" ng-click="submit()">PAY</button>
                   </td>
                </tr>
             </table>

@@ -7,6 +7,10 @@ app.use(express.static(__dirname)); //to avoid sending static files using res.se
 
 mongoose.connect("mongodb+srv://bpc:1234@cluster0.7twssup.mongodb.net/bpc")
 
+app.get("/",function(req,res){           
+    res.sendFile(__dirname + '/index.html')
+})
+
 const postSchema={
     feedback: String,
     imglink: String,
@@ -14,10 +18,6 @@ const postSchema={
     role:String
 }        
 const newPost=mongoose.model("feedback",postSchema)
-
-app.get("/",function(req,res){           
-    res.sendFile(__dirname + '/index.html')
-})
 
 app.get("/load",(req,res)=>{
     newPost.find( (err,data)=>{
@@ -41,6 +41,27 @@ app.post("/insertform",function(req,res){
     console.log(newInsert)
     newInsert.save();
     res.redirect("/index.html");
+})
+
+const custSchema={
+    fname: String,
+    lname:String,
+    emailid:String,
+    mno:String,
+    pwd:String,
+    
+}
+const newCust=mongoose.model("registers",custSchema)
+app.post("/insertUserData",function(req,res){
+    let insert =new newCust({
+        fname:req.body.fname,
+        lname:req.body.lname,
+        emailid:req.body.emailid,
+        mno:req.body.mno,
+        pwd:req.body.pwd,       
+    })
+    insert.save();
+        res.redirect("/");
 })
 
 app.listen(3000,function(){
