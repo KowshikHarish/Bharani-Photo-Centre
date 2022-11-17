@@ -11,6 +11,8 @@ app.get("/",function(req,res){
     res.sendFile(__dirname + '/index.html')
 })
 
+
+//Feedback Form
 const postSchema={
     feedback: String,
     imglink: String,
@@ -44,6 +46,7 @@ app.post("/insertform",function(req,res){
 })
 
 
+//Registration Form
 const custSchema={
     fname: String,
     lname:String,
@@ -67,6 +70,7 @@ app.post("/newcustomer",function(req,res){
 })
 
 
+//Payment Form
 const paySchema={
     cardNumber:String,
     cardHolderName:String,
@@ -81,10 +85,11 @@ app.post("/newpayment",function(req,res){
         amt:req.body.amt,      
     })
     insert.save();
-        res.redirect("/index.html");
+        res.redirect("/index.html#bookcamera");
 })
 
 
+//Meeting Form
 const meetingSchema={
     name:String,
     email:String,
@@ -105,9 +110,29 @@ app.post("/meetingsform",function(req,res){
         people:req.body.people,   
     })
     insert.save();
-        res.redirect("/index.html");
+        res.redirect("/index.html#reservemeeting");
 })
 
+
+//Contact Us Form
+const contactusSchema={
+    name:String,
+    email:String,
+    subject:String,
+    message:String,
+}
+const newContactus=mongoose.model("contacts",contactusSchema)
+
+app.post("/contactusform",function(req,res){
+    let insert =new newContactus({
+        name:req.body.name,
+        email:req.body.email,
+        subject:req.body.subject,   
+        message:req.body.message,  
+    })
+    insert.save();
+        res.redirect("/index.html#contact");
+})
 
 app.listen(3000,function(){
     console.log("server is running on 3000")
