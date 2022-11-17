@@ -84,6 +84,31 @@ app.post("/newpayment",function(req,res){
         res.redirect("/index.html");
 })
 
+
+const meetingSchema={
+    name:String,
+    email:String,
+    phone:String,
+    date:String,
+    time:String,
+    people:String,
+}
+const newMeeting=mongoose.model("meetings",meetingSchema)
+
+app.post("/meetingsform",function(req,res){
+    let insert =new newMeeting({
+        name:req.body.name,
+        email:req.body.email,
+        phone:req.body.phone,   
+        date:req.body.date,
+        time:req.body.time,
+        people:req.body.people,   
+    })
+    insert.save();
+        res.redirect("/index.html");
+})
+
+
 app.listen(3000,function(){
     console.log("server is running on 3000")
 })
