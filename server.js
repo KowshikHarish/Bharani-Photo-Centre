@@ -110,7 +110,7 @@ app.post("/meetingsform",function(req,res){
         people:req.body.people,   
     })
     insert.save();
-        res.redirect("/index.html#reservemeeting");
+        res.redirect("/index.html");
 })
 
 
