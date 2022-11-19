@@ -19,7 +19,7 @@ const postSchema={
     cname:String,
     place:String
 }        
-const newPost=mongoose.model("feedback",postSchema)
+const newPost=mongoose.model("feedbacks",postSchema)
 
 app.get("/load",(req,res)=>{
     newPost.find( (err,data)=>{
@@ -46,6 +46,51 @@ app.post("/insertform",function(req,res){
 })
 
 
+
+//Search Form       
+app.post("/searchform", (req, res) => {
+    newPost.findOne({cname:req.body.custname},(err, data) => {    
+        
+            console.log(data);            
+            res.redirect("index.html"); 
+                          
+      
+    });
+  });
+
+
+//Delete Form       
+app.post("/deleteform",(req,res)=>{
+    newPost.find({ "cname": req.body.customername}).deleteOne( (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            res.redirect("index.html")
+            }
+        })
+})
+
+
+//Update Form     
+app.post("/updateform",(req,res)=>{
+    query = {
+        cname: req.body.cn,    
+    }
+    update = {
+        feedback: req.body.fb,    
+     }
+    newPost.updateOne(query,update, function (err, result) {
+        if (err){
+            console.log(err)
+        }else{
+            console.log("Result :", result) 
+            res.redirect("index.html")
+           }
+        });   
+})
+
+
 //Registration Form
 const custSchema={
     fname: String,
@@ -65,9 +110,22 @@ app.post("/newcustomer",function(req,res){
         mno:req.body.mno,
         pwd:req.body.pwd,       
     })
-    insert.save();
-        res.redirect("/Login/login.html");
+    newCust.find({ "fname": insert.fname, "lname": insert.lname, "emailid": insert.emailid, "mno": insert.mno, "pwd": insert.pwd, }, (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+        else if (data.length) {
+            res.redirect("/Login/login.html")
+        }
+        else {
+            insert.save();
+            res.redirect("/Login/login.html")
+        }
+    })
+    
 })
+
+
 
 
 //Payment Form

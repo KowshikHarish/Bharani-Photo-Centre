@@ -36,7 +36,7 @@
 
 </head>
 
-<body>
+<body ng-app="prwpst" ng-controller="pctrl">
 
   <!-- Top Bar -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -547,7 +547,7 @@
     </section><!-- End Accessories Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <main class="main-content" ng-app="prwpst" ng-controller="pctrl">
+    <main class="main-content"  >
 			<div class="fullwidth-block inner-content">
 				<div class="container"  ng-init="cards=[
 				    {
@@ -679,6 +679,63 @@
         </aside>
       </div>
 		</main> <!-- .main-content -->
+
+    <h3 class="widget-title" style="color: #cda45e;">SEARCH A FEEDBACK</h3>            
+            <div class="box">
+              <form name="searchfeedbackform" action="/searchform" method="post" novalidate>  
+                <div class="input-box">                  
+                  <input id="user-post-custname" type="text" name="custname" required="" ng-model="pctrl.custname">
+                  <label>Customer Name</label> <br>                 
+                  <span style = "color:red" ng-show = "searchfeedbackform.custname.$dirty && searchfeedbackform.custname.$invalid">
+                    <span ng-show = "searchfeedbackform.custname.$error.required">Customer name is needed</span>
+                   </span>																						
+                </div><br>
+                <input id="submit" type="submit" name="" value="Search" style="background-color: #cda45e;border-radius: 17px;">
+              </form>
+            </div>
+          
+
+          <h3 class="widget-title" style="color: #cda45e;">DELETE A FEEDBACK</h3>            
+          <div class="box">
+            <form name="deletefeedbackform" action="/deleteform" method="post" novalidate>  
+              <div class="input-box">                  
+                <input id="user-post-customername" type="text" name="customername" required="" ng-model="pctrl.customername">
+                <label>Customer Name</label> <br>                 
+                <span style = "color:red" ng-show = "deletefeedbackform.customername.$dirty && deletefeedbackform.customername.$invalid">
+                  <span ng-show = "deletefeedbackform.customername.$error.required">Customer name is needed</span>                                            
+              </div><br>
+              <input id="submit" type="submit" name="" value="Delete" style="background-color: #cda45e;border-radius: 17px;">
+            </form>
+          </div>
+
+
+          <h3 class="widget-title" style="color: #cda45e;">UPDATE A FEEDBACK</h3>     
+                 
+            <div class="box">
+              <form name="updatefeedbackform" action="/updateform" method="post" novalidate>  
+                <div class="input-box">                  
+                  <input id="user-post-cn" type="text" name="cn" required="" ng-model="pctrl.cn">
+                  <label>Customer Name</label> <br>                 
+                  <span style = "color:red" ng-show = "updatefeedbackform.cn.$dirty && updatefeedbackform.cn.$invalid">
+                    <span ng-show = "updatefeedbackform.cn.$error.required">Customer name is needed</span>
+                   </span>																						
+                </div><br>
+
+                <div class="input-box">                  
+                  <input id="user-post-fb" type="text" name="fb" required="" ng-model="pctrl.fb">
+                  <label>Feedback</label> <br>                 
+                  <span style = "color:red" ng-show = "updatefeedbackform.fb.$dirty && updatefeedbackform.fb.$invalid">
+                    <span ng-show = "updatefeedbackform.fb.$error.required">Feedback is needed</span>
+                   </span>                                            
+                </div><br>
+                <input id="submit" type="submit" name="" value="Update" style="background-color: #cda45e;border-radius: 17px;">
+              </form>
+            </div>
+
+
+
+            
+           
     <!-- End Testimonials Section -->
 
     <!-- ======= Gallery Section ======= -->
