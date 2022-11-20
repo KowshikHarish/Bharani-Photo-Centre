@@ -17,18 +17,21 @@
 				<a href="../index.html" style="text-decoration: none;"><h3>Bharani Photo Centre</h3></a>				
 			</div>
 			<div class="card-header">
-				<h3 style="color: #d3af71;">Forgot Password</h3>				
+				<h3 style="color: #d3af71;">Reset Password</h3>				
 			</div>
 			<div class="card-body">
-				<form>
+				<form name="resetpwdform" action="/resetpwd" method="post" novalidate>
                     <label for="mno">Mobile Number</label><br>
                     <input type="text" id="mno" name="mno"><br>
 
+					<label for="oldpwd">Old Password</label><br>
+                    <input type="password" id="oldpwd" name="oldpwd"><br>
+
                     <label for="newpwd">New Password</label><br>
-                    <input type="text" id="newpwd" name="newpwd"><br>
+                    <input type="password" id="newpwd" name="newpwd"><br>
 
                     <label for="conewpwd">Confirm New Password</label><br>
-                    <input type="text" id="conewpwd" name="conewpwd"><br><br>
+                    <input type="password" id="conewpwd" name="conewpwd"><br><br>
 
 					<div class="form-group">
 						<input type="submit" value="Reset" class="btn float-right login_btn">

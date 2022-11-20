@@ -46,7 +46,6 @@ app.post("/insertform",function(req,res){
 })
 
 
-
 //Search Form       
 app.post("/searchform", (req, res) => {
     newPost.findOne({cname:req.body.custname},(err, data) => {  
@@ -130,6 +129,41 @@ app.post("/newcustomer",function(req,res){
     
 })
 
+
+//Change Password Form
+app.post("/resetpwd",(req,res)=>{
+    newCust.findOne({mno:req.body.mno, pwd: req.body.oldpwd},(err,data) =>{
+    if (data != null) {
+      if(req.body.newpwd==req.body.conewpwd)
+      {
+        newCust.updateOne(
+          { 
+            mno: req.body.mno, 
+            pwd: req.body.oldpwd 
+          },
+          { 
+            pwd: req.body.newpwd 
+          },
+          (err, data) => {
+            if (err) 
+            {
+              console.log(err);
+            } 
+            else 
+            {
+              res.redirect("/Login/login.html");
+            }
+          }
+        );
+      }
+     
+    } 
+    else 
+    {
+      res.redirect("/Error/registererror.html");
+    }
+    });
+    });
 
 
 
