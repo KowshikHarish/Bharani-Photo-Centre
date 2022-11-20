@@ -49,12 +49,9 @@ app.post("/insertform",function(req,res){
 
 //Search Form       
 app.post("/searchform", (req, res) => {
-    newPost.findOne({cname:req.body.custname},(err, data) => {    
-        
+    newPost.findOne({cname:req.body.custname},(err, data) => {  
             console.log(data);            
-            res.redirect("index.html"); 
-                          
-      
+            res.redirect("index.html#testimonials");                          
     });
   });
 
@@ -62,12 +59,14 @@ app.post("/searchform", (req, res) => {
 //Delete Form       
 app.post("/deleteform",(req,res)=>{
     newPost.find({ "cname": req.body.customername}).deleteOne( (err, data) => {
-        if (err) {
+        if (err) 
+        {
             console.log(err)
         }
-        else {
-            res.redirect("index.html")
-            }
+        else 
+        {
+            res.redirect("index.html#testimonials")
+        }
         })
 })
 
@@ -81,12 +80,15 @@ app.post("/updateform",(req,res)=>{
         feedback: req.body.fb,    
      }
     newPost.updateOne(query,update, function (err, result) {
-        if (err){
+        if (err)
+        {
             console.log(err)
-        }else{
+        }
+        else
+        {
             console.log("Result :", result) 
-            res.redirect("index.html")
-           }
+            res.redirect("index.html#testimonials")
+        }
         });   
 })
 
@@ -111,16 +113,19 @@ app.post("/newcustomer",function(req,res){
         pwd:req.body.pwd,       
     })
     newCust.find({ "fname": insert.fname, "lname": insert.lname, "emailid": insert.emailid, "mno": insert.mno, "pwd": insert.pwd, }, (err, data) => {
-        if (err) {
+        if (err) 
+        {
             console.log(err)
         }
-        else if (data.length) {
-            res.redirect("/Login/login.html")
+        else if (data.length) 
+        {
+            res.redirect("/Error/registererror.html")
         }
-        else {
+        else 
+        {
             insert.save();
             res.redirect("/Login/login.html")
-        }
+        }
     })
     
 })
