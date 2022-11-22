@@ -160,7 +160,7 @@ app.post("/resetpwd",(req,res)=>{
     } 
     else 
     {
-      res.redirect("/Error/registererror.html");
+      res.redirect("/Error/rstpwderror.html");
     }
     });
     });
